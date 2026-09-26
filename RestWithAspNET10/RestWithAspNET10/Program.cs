@@ -1,9 +1,16 @@
+using RestWithAspNET10.Services;
+using RestWithAspNET10.Services.Implementations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
+//Injeção de Dependencia
+builder.Services.AddScoped<IPersonServices, PersonServicesImplementation>();
+
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
