@@ -56,7 +56,7 @@ namespace RestWithAspNET10.Services.Implementations
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            //
         }
     }
 }
