@@ -9,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Database Connection
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
+//SERILOG
+builder.AddSerilogLogging();
+
 builder.Services.AddControllers();
 
 //Injeção de Dependencia
