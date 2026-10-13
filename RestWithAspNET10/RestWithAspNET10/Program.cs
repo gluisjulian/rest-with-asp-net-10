@@ -1,32 +1,33 @@
-using Microsoft.EntityFrameworkCore;
 using RestWithAspNET10.Configurations;
-using RestWithAspNET10.Context;
+using RestWithAspNET10.Repositories;
+using RestWithAspNET10.Repositories.Implementation;
 using RestWithAspNET10.Services;
 using RestWithAspNET10.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Database Connection
-builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
 //SERILOG
 builder.AddSerilogLogging();
 
 builder.Services.AddControllers();
 
+// Database Connection
+builder.Services.AddDatabaseConfiguration(builder.Configuration);
+
 //Injeção de Dependencia
 builder.Services.AddScoped<IPersonServices, PersonServicesImplementation>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 
-builder.Services.AddOpenApi();
+//builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.MapOpenApi();
+//}
 
 app.UseHttpsRedirection();
 
