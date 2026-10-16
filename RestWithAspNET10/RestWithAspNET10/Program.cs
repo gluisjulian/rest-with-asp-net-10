@@ -14,6 +14,9 @@ builder.Services.AddControllers();
 // Database Connection
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
+//Evolve
+builder.Services.AddEvolveConfiguration(builder.Configuration, builder.Environment);
+
 //Injeção de Dependencia
 builder.Services.AddScoped<IPersonServices, PersonServicesImplementation>();
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();
