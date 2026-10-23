@@ -1,17 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using RestWithAspNET10.Model.Base;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestWithAspNET10.Model
 {
     [Table("person")]
-    public class Person
+    public class Person : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("id")]
-        public long Id { get; set; }
-
         [Required]
         [Column("first_name", TypeName = "varchar(80)")]
         [MaxLength(80)]

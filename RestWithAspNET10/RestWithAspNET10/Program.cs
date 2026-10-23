@@ -19,10 +19,10 @@ builder.Services.AddEvolveConfiguration(builder.Configuration, builder.Environme
 
 //Injeção de Dependencia
 builder.Services.AddScoped<IPersonServices, PersonServicesImplementation>();
-builder.Services.AddScoped<IPersonRepository, PersonRepository>();
-
 builder.Services.AddScoped<IBookService, BookServiceImplementation>();
-builder.Services.AddScoped<IBookRepository, BookRepository>();
+
+//Generic Repository
+builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
 
 //builder.Services.AddOpenApi();
